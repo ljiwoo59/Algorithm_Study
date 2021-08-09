@@ -29,12 +29,27 @@ private static void permutation(int cnt) { // cnt : 현재까지 뽑은 개수
 		}
 	}
 ```
+### 중복 순열
+
+```java
+private static void repeated_permutation(int cnt) { // cnt : 현재까지 뽑은 개수
+		if (cnt == R) {
+			totalCount++;
+			System.out.println(Arrays.toString(selected));
+			return;
+		}
+		for (int i = 0; i < N; i++) { // 가지고 있는 수
+			selected[cnt] = nums[i];
+			repeated_permutation(cnt + 1);
+		}
+	}
+```
+* 중복이 가능하므로 보고 있는 수가 선택 되었는지 확인할 필요가 없음
+
 ## Combination
 * **nCr**
   * *nCr = (n-1)C(r-1) + (n-1)Cr*
   
-  
-
 ```java
 private static void combination(int cnt, int start) { // cnt : 현재 뽑은 숫자 개수, start : 선택 시작 위치
 		if (cnt == R) {
@@ -49,3 +64,47 @@ private static void combination(int cnt, int start) { // cnt : 현재 뽑은 숫
 		
 	}
 ```
+
+### 중복 조합
+
+```java
+private static void combination(int cnt, int start) { // cnt : 현재 뽑은 숫자 개수, start : 선택 시작 위치
+		if (cnt == R) {
+			totalCount++;
+			System.out.println(Arrays.toString(selected));
+			return;
+		}
+		for (int i = start; i < N; i++) { // 선택 할 수 있는 숫자들
+			selected[cnt] = nums[i];
+			combination(cnt + 1, i);
+		}
+		
+	}
+```
+
+* 중복이 가능하므로 현재 선택한 수 부터 다시 선택할 수 있음
+
+## Subset
+* 집합에 포함된 원소들을 선택하는 것
+* 집합의 원소가 *n* 개 일 때, 공집합을 포함한 부분 집합의 수는 *2^n* 개
+	* 각 원소를 부분 집합에 포함시키거나, 포함시키지 않는 2가지 경우
+
+```java
+private static void subset(int index) {
+	if (index == N) {
+		totalCnt++;
+		for (int i = 0; i < N; i++) {
+			if (isSelected[i])
+				System.out.print(input[i] + " ");
+		}
+		System.out.println();
+		return ;
+	}
+	isSelected[index] = ture; // 현재 원소를 부분 집합에 넣기
+	subset(index + 1);
+	isSelected[index] = false; // 현재 원소를 부분 집합에 넣지 않기
+	subset(index + 1);
+}
+```
+
+
