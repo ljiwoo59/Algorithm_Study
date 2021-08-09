@@ -88,6 +88,7 @@ private static void combination(int cnt, int start) { // cnt : 현재 뽑은 숫
 * 집합에 포함된 원소들을 선택하는 것
 * 집합의 원소가 *n* 개 일 때, 공집합을 포함한 부분 집합의 수는 *2^n* 개
 	* 각 원소를 부분 집합에 포함시키거나, 포함시키지 않는 2가지 경우
+* n 이 20 이면 대략 100만, 30 이면 10억번을 연산함	 	
 
 ```java
 private static void subset(int index) {
