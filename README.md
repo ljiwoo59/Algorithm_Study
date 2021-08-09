@@ -4,9 +4,17 @@
 * 표준 입출력
 * 재귀
 
+## [자료 구조]()
+* Stack
+* Queue
+* List
+
 ## [완전 탐색](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_BruteForce)
 * Permutaion (순열)
+  * 중복 순열
 * Combination (조합)
+  * 중복 조합
+* Subset (부분 집합)
 
 ---
 # [Solve Problems](https://github.com/ljiwoo59/Algorithm_Java)
