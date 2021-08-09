@@ -4,10 +4,12 @@
 * 표준 입출력
 * 재귀
 
-## [자료 구조]()
+## [자료 구조](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_DataStructure)
 * Stack
 * Queue
+  * Priority Queue
 * List
+  * Linked List 
 
 ## [완전 탐색](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_BruteForce)
 * Permutaion (순열)
