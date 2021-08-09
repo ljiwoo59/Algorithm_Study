@@ -17,7 +17,7 @@
 ---
 
 ## Queue
-* ***F**irst-**I**n-***F**irst-**O**ut* (선입선출) 형태의 자료구조
+* ***F**irst-**I**n-**F**irst-**O**ut* (선입선출) 형태의 자료구조
 * **front** 와 **rear**
   * **front** 는 삭제, **rear** 은 삽입
 * java.util.Queue
