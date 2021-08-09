@@ -5,7 +5,7 @@
 * *조합적 문제*와 연관
   * **순열 (permutation), 조합 (combination), 부분집합 (subset)**
 
-## Permutation
+## [Permutation](https://github.com/ljiwoo59/Algorithm_Study/blob/main/Algo_BruteForce/PermutationTest.java)
 * **nPr**
   * *nPr = n \* (n - 1) \* (n - 2) \* ... \* (n - r + 1)*
   * *nPn = n!*
@@ -46,7 +46,7 @@ private static void repeated_permutation(int cnt) { // cnt : 현재까지 뽑은
 ```
 * 중복이 가능하므로 보고 있는 수가 선택 되었는지 확인할 필요가 없음
 
-## Combination
+## [Combination](https://github.com/ljiwoo59/Algorithm_Study/blob/main/Algo_BruteForce/CombinationTest.java)
 * **nCr**
   * *nCr = (n-1)C(r-1) + (n-1)Cr*
   
