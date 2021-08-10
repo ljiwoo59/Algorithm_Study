@@ -50,7 +50,7 @@
   * 개별적으로 위치하고 있는 각 원소를 연결하여 하나의 전체적인 자료구조를 이룸
   * 메모리의 효율적인 사용 가능
 
-### [Linked List (연결 리스트)](https://github.com/ljiwoo59/Algorithm_Study/blob/main/Algo_DataStructure/SingleLinkedList.java)
+### [Linked List (연결 리스트)](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_DataStructure/LinkedList)
 ```java
 Class Node {
   public String data;
@@ -84,3 +84,57 @@ Class Node {
   * **이중 연결 리스트** : 링크를 2개 유지하는 리스트 (이전 노드와 다음 노드 정보)
     * 양쪽 방향으로 순회할 수 있도록 노드를 연결
   * **원형 연결 리스트** : 리스트의 끝과 처음을 연결
+
+---
+
+## [Tree](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_DataStructure/Tree)
+* 원소들 간 *1 : N* 관계를 가지는 **비선형** 자료구조
+* **계층형** 자료구조
+* 구조
+  * **Node**
+    * 트리의 원소
+    * **Root node** : 최상위 노드
+    * *Sibling node* : 같은 부모 노드의 자식 노드들
+    * **Leaf node** : 차수가 0 인, 자식 노드가 없는 노드
+    * *조상 노드* : 루트 노드까지 이르는 경로에 있는 모든 노드들
+    * *자손 노드* : 서브 트리에 있는 하위 레벨 노드들
+    * *Subtree* : 부모 노드와 연결된 *edge* 를 끊었을 때 생성되는 트리
+  * **Edge**
+    * 노드와 노드를 연결하는 선
+* **Degree**
+  * 노드의 차수 : 노드에 연결된 자식 노드의 수
+  * 트리의 차수 : 트리에 있는 노드의 차수 중에서 가장 큰 값
+* **Depth**
+  * 노드의 높이 : 루트에서 노드에 이르는 간선의 수
+  * 트리의 높이 : 트리에 있는 노드의 높이 중에서 가장 큰 값
+
+### Binary Tree (이진 트리)
+![image](https://user-images.githubusercontent.com/54715744/128820739-133768e8-0560-4194-b7d2-894d376c8e03.png)
+
+* 차수가 2인 트리
+* 각 노드가 자식 노드를 최대한 2개 까지만 가질 수 있음
+* 모든 노드들이 최대 2개의 서브트리를 가짐
+* 높이 *i* 에서의 노드 최대 개수는 **2^*i*** 개
+* **노드 번호의 성질**
+  * *i* 노드의 부모 노드 : ***i / 2***
+  * *i* 노드의 왼쪽 자식 노드 : ***2 \* i***
+  * *i* 노드의 오른쪽 자식 노드 : ***2 \* i + 1***
+  * 높이 *n* 의 시작 노드 : ***2^
+
+#### Full Binary Tree
+![image](https://user-images.githubusercontent.com/54715744/128820972-2dd1c66b-1858-4281-b53f-475b0d737f69.png)
+
+* 모든 레벨에 노드가 포화 상태로 차 있는 이진 트리
+* 높이가 *i* 일때, 노드 최대 개수는 **(2^*(h + 1)* - 1)**
+
+#### Complete Binary Tree
+![image](https://user-images.githubusercontent.com/54715744/128821186-cfd5afe9-4a84-4b57-84b0-6ad4c24189dc.png)
+
+* 높이가 *i* 이고 노드 수가 *n* 개 일때, 포화 이진 트리의 노드 1 부터 n 까지 빈 자리가 없는 이진 트리
+
+#### Skewed Binary Tree
+![image](https://user-images.githubusercontent.com/54715744/128821354-8605bb60-f357-46c9-a0fc-f906b3ad0f1d.png)
+
+* 높이 *i* 에 대한 최소 개수의 노드를 가지면서 한쪽 방향의 자식 노드 만을 가진 이진 트리
+
+
