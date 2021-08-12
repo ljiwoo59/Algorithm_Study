@@ -29,6 +29,34 @@ private static void permutation(int cnt) { // cnt : 현재까지 뽑은 개수
 	}
 }
 ```
+### 비트 연산자 이용
+```java
+private static void permutation(int cnt, int flag) {
+	if (cnt == R) {
+		for (int i = 0; i < N; i++) {
+			if ((flag & 1 << i) != 0)
+				System.out.println(numbers[i]);
+		}
+	}
+	for (int i = 0; i < N; i++) {
+		if ((flag & 1 << i) != 0) continue;
+		permutation(cnt + 1, flag | 1 << i);
+	}
+}
+```
+* isSelected 배열 대신 비트의 1 값을 배열 처럼 쓴다
+* *정수형 32 비트, long 형 64 비트*
+* **<<**
+	* 우선순위 제일 높음
+	* 원소 유무 체크
+* **&**
+	* 각 비트열을 비교하여 두 비트 모두 1 이면 1, 아니면 0
+	* 해당 원소가 이미 존재하는지 확인
+* **|**
+	* 각 비트열을 비교하여 두 비트 모두 0 이면 0, 아니면 1
+	* 해당 원소를 지금 비트열에 추가
+
+
 ### 중복 순열
 
 ```java
@@ -45,6 +73,49 @@ private static void repeated_permutation(int cnt) { // cnt : 현재까지 뽑은
 }
 ```
 * 중복이 가능하므로 보고 있는 수가 선택 되었는지 확인할 필요가 없음
+
+## [Next Permutation]()
+* 현 순열에서 오름차 순으로 다음 순열 생성
+* 알고리즘
+	* *뒤* 부터 탐색하며 교환 위치(*i - 1*) 찾기
+		* *i - 1* 이 *i* 보다 작아지는 곳
+	* *뒤* 부터 탐색하며 교환 위치(*i - 1*) 와 교환할 처음으로 큰 값 위치(*j*) 찾기
+	* 두 위치 값 교환
+	* *i* 부터 맨 *뒤*까지 오름차순 정렬
+
+```java
+do {
+	// 순열 사용
+	System.out.println(Arrays.toString(input));	
+} while (np(input));
+
+// 다음 큰 순열이 있으면 true, 없으면 false
+private static boolean np(int[] numbers) {
+	int N = numbers.length;
+		
+	// step1. 꼭대기(i)를 찾는다. 꼭대기를 통해 교환 위치(i-1) 찾기
+	int i = N - 1;
+	while(i > 0 && numbers[i - 1] >= numbers[i]) i--;	
+	if (i == 0) return false;
+		
+	// step2. i - 1 위치값과 교환할 i 보다 처음으로 큰 값 찾기
+	int j = N - 1;
+	while (numbers[i - 1] >= numbers[j]) j--;
+		
+	// step3. i - 1 위치값과 j 위치값 교환
+	swap(numbers, i - 1, j);
+		
+	// step4. 꼭대기(i)부터 맨뒤 까지 내림차순 형태의 순열을 오름차순으로 처리
+	int k = N - 1;
+	while (i < k) {
+		swap(numbers, i++, k--);
+	}
+		
+	return true;
+}
+```
+
+---
 
 ## [Combination](https://github.com/ljiwoo59/Algorithm_Study/blob/main/Algo_BruteForce/CombinationTest.java)
 * **nCr**
@@ -84,6 +155,12 @@ private static void combination(int cnt, int start) { // cnt : 현재 뽑은 숫
 
 * 중복이 가능하므로 현재 선택한 수 부터 다시 선택할 수 있음
 
+## [Next Permutation 이용]()
+* **N** 크기의 *int* 배열을 생성하여 **R** 크기 만큼 뒤에서 1로 초기화
+* 알고리즘 수행시마다 1 값의 위치 조합이 만들어짐
+
+---
+
 ## Subset
 * 집합에 포함된 원소들을 선택하는 것
 * 집합의 원소가 *n* 개 일 때, 공집합을 포함한 부분 집합의 수는 *2^n* 개
@@ -107,7 +184,49 @@ private static void subset(int index) {
 	subset(index + 1);
 }
 ```
+### 비트 연산자 이용
+```java
+private static void subset(int index, int flag) {
+	if (index == N) {
+		for (int i = 0; i < N; i++) {
+			if ((flag & 1 << i) != 0)
+				System.out.println(numbers[i]);
+		}
+	}
+	subset(index + 1, flag | 1 << index);
+	subset(index + 1, flag);
+}
+```
+* isSelected 배열 대신 비트의 1 값을 배열 처럼 쓴다
+* *정수형 32 비트, long 형 64 비트*
+* **<<**
+	* 우선순위 제일 높음
+	* 원소 유무 체크
+* **&**
+	* 각 비트열을 비교하여 두 비트 모두 1 이면 1, 아니면 0
+	* 해당 원소가 이미 존재하는지 확인
+* **|**
+	* 각 비트열을 비교하여 두 비트 모두 0 이면 0, 아니면 1
+	* 해당 원소를 지금 비트열에 추가
 
+## Binary Counting 이용
+![image](https://user-images.githubusercontent.com/54715744/129200096-6b158467-2e30-4fb3-bdb7-c697682795c4.png)
+
+* 사전적 순서로 생성하기 위한 간단한 방법
+* **N** 개의 비트열 이용
+
+```java
+int arr[] = {3, 6, 7, 1, 5, 4};
+int n = arr.length;
+
+for (int i = 0; i < (1 << n); i++) { // 1 << n : 부분집합의 개수 2^n
+	for (int j = 0; j < n; j++) { // 원소 수만큼 비트 비교
+		if (i & (1 << j) != 0) // i 의 j 번째 비트가 1 이면 j 번째 원소 출력
+			System.out.print(arr[j] + " ");
+	}
+	System.out.println();
+}
+```
 ---
 
 ## BFS (Breath First Search)
