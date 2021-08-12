@@ -17,9 +17,11 @@
 ## [완전 탐색](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_BruteForce)
 * Permutaion (순열)
   * 중복 순열
+  * NextPermutation
 * Combination (조합)
   * 중복 조합
 * Subset (부분 집합)
+  * Binary Counting
 * **BFS**
 * **DFS**
 
