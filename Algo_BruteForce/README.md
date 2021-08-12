@@ -74,7 +74,7 @@ private static void repeated_permutation(int cnt) { // cnt : 현재까지 뽑은
 ```
 * 중복이 가능하므로 보고 있는 수가 선택 되었는지 확인할 필요가 없음
 
-## [Next Permutation]()
+## [Next Permutation](https://github.com/ljiwoo59/Algorithm_Study/blob/main/Algo_BruteForce/NextPermutationTest.java)
 * 현 순열에서 오름차 순으로 다음 순열 생성
 * 알고리즘
 	* *뒤* 부터 탐색하며 교환 위치(*i - 1*) 찾기
@@ -155,7 +155,7 @@ private static void combination(int cnt, int start) { // cnt : 현재 뽑은 숫
 
 * 중복이 가능하므로 현재 선택한 수 부터 다시 선택할 수 있음
 
-## [Next Permutation 이용]()
+## [Next Permutation 이용](https://github.com/ljiwoo59/Algorithm_Study/blob/main/Algo_BruteForce/NextPermutationComb.java)
 * **N** 크기의 *int* 배열을 생성하여 **R** 크기 만큼 뒤에서 1로 초기화
 * 알고리즘 수행시마다 1 값의 위치 조합이 만들어짐
 
