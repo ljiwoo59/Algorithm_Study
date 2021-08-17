@@ -25,6 +25,10 @@
 * **BFS**
 * **DFS**
 
+## [탐욕 알고리즘](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_Greedy)
+
+## [분할 정복 알고리즘](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_DivideConquer)
+
 ---
 # [Solve Problems](https://github.com/ljiwoo59/Algorithm_Java)
 * Baekjoon
