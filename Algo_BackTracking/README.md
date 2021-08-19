@@ -13,3 +13,9 @@
 
 ## Example
 ### N-Queen
+
+### [부분집합의 합](https://github.com/ljiwoo59/Algorithm_Study/blob/main/Algo_BackTracking/SubsetSum.java)
+* *완전 탐색* 이용 시, 집합의 모든 부분집합을 생성한 후 각 부분집합의 합을 계산
+* *sum* 매개변수를 이용하여 조건 만족 시 더 이상 부분집합을 고려하지 않고 종료하는 조건 추가
+  * *sum* == *S* 이면 return
+  * *sum* > *S* || *cnt* == *N* 이면 return
