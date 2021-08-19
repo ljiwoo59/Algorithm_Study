@@ -10,9 +10,10 @@
   * Priority Queue
 * List
   * Linked List 
-* Tree
-  * Binary Tree
-  * Heap
+* Graph
+  * Tree
+    * Binary Tree
+    * Heap
 
 ## [완전 탐색](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_BruteForce)
 * Permutaion (순열)
