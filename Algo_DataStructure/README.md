@@ -27,7 +27,7 @@
 * 활용
   * 데이터를 한 곳에서 다른 한 곳으로 전송하는 동안 일시적으로 데이터를 보관하는 메모리의 영역 (버퍼)
 
-### Priority Queue (우선순위 큐)
+## Priority Queue (우선순위 큐)
 * **우선순위**를 가진 항목들을 저장하는 큐
 * 선입선출 순서가 아니라 **우선순위**가 높은 순서대로 먼저 나가게 된다
 * java.util.PriorityQueue
@@ -50,7 +50,7 @@
   * 개별적으로 위치하고 있는 각 원소를 연결하여 하나의 전체적인 자료구조를 이룸
   * 메모리의 효율적인 사용 가능
 
-### [Linked List (연결 리스트)](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_DataStructure/LinkedList)
+## [Linked List (연결 리스트)](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_DataStructure/LinkedList)
 ```java
 Class Node {
   public String data;
@@ -86,6 +86,31 @@ Class Node {
   * **원형 연결 리스트** : 리스트의 끝과 처음을 연결
 
 ---
+## Graph
+* 선형 자료구조나 트리로 표현하기 어려운 **N : N** 관계를 가지는 원소를 표현하기에 용이
+* *Undirected Graph*
+* *Directed Graph*
+* *Weighted Graph*
+* *Directed Acyclic Graph* (사이클 없음)
+* 구조
+  * **Vertex** : 그래프의 구성요소
+  * **Edge** : 두 정점을 연결하는 선
+    * 최대 간선 수 **V(V - 1) / 2**
+  * **Degree** : 정점에 연결된 간선의 수
+* 표현
+  * 간선의 정보를 저장하는 방식
+  * 메모리나 성능을 고려해서 결정
+  * **인접 행렬 (Adjacent Matrix)**
+    * **V x V** 크기의 2차원 배열을 이용해서 두 정점을 연결하는 간선의 유무를 저장
+    * *row* 가 시작 정점, *col* 이 도착 정점
+    * 정점 비례 간선의 개수가 많을 때 유용 (밀집 그래프)
+  * **인접 리스트 (Adjacent List)**
+    * 각 정점에 대한 인접 정점들을 순차적으로 표현
+    * 하나의 정점에 대한 인접 정점들을 각각 노드로 하는 연결 리스트 저장
+  * **간선 리스트 (Edge List)**
+    * 간선의 정보를 객체로 표현하여 리스트에 저장
+    * 간선을 표현하는 두 정점의 정보를 나타냄 (시작 정점, 끝 정점)
+
 
 ## [Tree](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_DataStructure/Tree)
 * 원소들 간 *1 : N* 관계를 가지는 **비선형** 자료구조
