@@ -29,6 +29,8 @@
 
 ## [분할 정복 알고리즘](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_DivideConquer)
 
+## [백트래킹](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_BackTracking)
+
 ---
 # [Solve Problems](https://github.com/ljiwoo59/Algorithm_Java)
 * Baekjoon
