@@ -12,7 +12,11 @@
 * 일반적으로 경우의 수가 줄어들지만 *최악의 경우*에는 여전히 지수함수 시간(Exponential Time)을 요한다
 
 ## Example
-### N-Queen
+### [N-Queen](https://github.com/ljiwoo59/Algorithm_Java/blob/master/Baekjoon/gold/B9663.java)
+* *1차원 배열* 을 이용하여 각 *col index* 당 *row index*를 저장
+  * 한 행에 하나의 퀸만 놓는다
+* 1 부터 N 까지의 *row index* 를 시도해 봄으로서 유망성 체크
+  * 이전 퀸들과 행, 열이 같거나 대각선이면 종료
 
 ### [부분집합의 합](https://github.com/ljiwoo59/Algorithm_Study/blob/main/Algo_BackTracking/SubsetSum.java)
 * *완전 탐색* 이용 시, 집합의 모든 부분집합을 생성한 후 각 부분집합의 합을 계산
