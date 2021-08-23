@@ -32,6 +32,12 @@
 
 ## [백트래킹](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_BackTracking)
 
+## [그래프 탐색](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_Graph)
+* **BFS** & **DFS**
+  * 인접 행렬
+  * 인접 리스트
+* Disjoint-set (서로소 집합)
+
 ---
 # [Solve Problems](https://github.com/ljiwoo59/Algorithm_Java)
 * Baekjoon
