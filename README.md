@@ -5,24 +5,24 @@
 * 재귀
 
 ## [자료 구조](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_DataStructure)
-* Stack
-* Queue
-  * Priority Queue
-* List
+* **Stack**
+* **Queue**
+  * ***Priority Queue***
+* **List**
   * Linked List 
-* Graph
-  * Tree
+* **Graph**
+  * ***Tree***
     * Binary Tree
     * Heap
 
 ## [완전 탐색](https://github.com/ljiwoo59/Algorithm_Study/tree/main/Algo_BruteForce)
-* Permutaion (순열)
+* **Permutaion (순열)**
   * 중복 순열
-  * NextPermutation
-* Combination (조합)
+  * ***NextPermutation***
+* **Combination (조합)**
   * 중복 조합
-* Subset (부분 집합)
-  * Binary Counting
+* **Subset (부분 집합)**
+  * ***Binary Counting***
 * **BFS**
 * **DFS**
 
@@ -36,7 +36,12 @@
 * **BFS** & **DFS**
   * 인접 행렬
   * 인접 리스트
-* Disjoint-set (서로소 집합)
+* **Disjoint-set (서로소 집합)**
+* **Minimum Spanning Tree**
+  * ***Kruskal Algorithm***
+  * ***Prim Algorithm***
+* **최단 경로**
+  * ***Dijkstra Algorithm***
 
 ---
 # [Solve Problems](https://github.com/ljiwoo59/Algorithm_Java)
