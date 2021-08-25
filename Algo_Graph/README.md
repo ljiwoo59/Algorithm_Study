@@ -221,6 +221,8 @@ for (int i = 0; i < N; i++) {
 * 시작 정점에서 **거리가 최소인 정점**을 선택해 나가면서 최단 경로를 구하는 방식
 	* 단, 현재 거리가 최소인 정점을 통해 다음 정점까지의 거리가 현재 다른 정점을 통해 가는 거리보다 클 수가 있으므로 **간선 가중치 배열을 누적시키며 최소 거리로 업데이트** 해준다
 
+### 기존 방식
+
 ```java
 Arrays.fill(distance, INFINITY); // 초기에 시작 정점에서 index 정점 까지의 최소 거리를 max 값으로 초기화
 distance[start] = 0; // 시작 정점의 거리는 0
@@ -249,3 +251,34 @@ for (int i = 0; i < V; i++) {
 			
 }
 ```
+* 시간 복잡도 **O(V^2)**
+
+### Priority Queue 이용
+```java
+PriorityQueue<Edge> pq = new PriorityQueue<>();
+distance[depart] = 0;
+pq.offer(new Edge(depart, 0));
+		
+while (!pq.isEmpty()) {
+	Edge curr = pq.poll();
+			
+	if (curr.index == dest) { // 목적지까지 경로를 구할 시 (모든 정점에 대한 최단 경로일 시 생략)
+		System.out.println(curr.cost);
+		break;
+	}
+	
+	// 현재 계산한 최단 경로 배열 값보다 빼낸 최단경로가 크면 고려할 필요가 없음 (이미 방문 했다는 것)		
+	if (distance[curr.index] < curr.cost) continue; 
+	
+	for (Edge edge : list[curr.index]) {
+		if (distance[edge.index] > curr.cost + edge.cost) {
+			distance[edge.index] = curr.cost + edge.cost;
+			pq.offer(new Edge(edge.index, distance[edge.index]));
+		}
+	}
+}
+```
+* 시간 복잡도 **O((V+E)logV)**
+* **Queue** 에서 빼낸 값은 **해당 정점까지의 최소 비용**을 계산한 것이라 확정
+	* 우선순위는 **누적 cost 에 대한 오름차순**
+* 최단 경로 값을 업데이트 할 시에만 **Queue** 에 넣어준다
