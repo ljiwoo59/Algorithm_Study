@@ -13,4 +13,4 @@
 #### java.util.Arrays.binarySearch
 * 이진탐색 API
 * int *binarySearch(int[] a, int key)*
-* int *binarySearch(int[] a, int fromIndex, int toIndex, int key);
+* int *binarySearch(int[] a, int fromIndex, int toIndex, int key)*;
