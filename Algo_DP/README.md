@@ -50,6 +50,8 @@ private static int fibo_dp(n) {
 * 중복 계산이 없다
 * **O(n)**
 
+---
+
 # 응용
 ## 최장 증가 부분 수열
 * **LIS (Longest Incresing Subsequence)**
@@ -97,11 +99,45 @@ private static void backtrace(int idx, int num) { // 최초엔 수열 총 길이
   // 원소를 모두 찾았으면 종료
   if (idx == 0) return;
   
-  // 뒤에서 가장 처음 만난 *p* 의 값이 찾는 인덱스 값일 때
+  // 뒤에서 가장 처음 만난 P 의 값이 찾는 인덱스 값일 때
   if (P[idx] == num) {
     backtrace(idx - 1, num - 1); 다음 인덱스 값 찾기
     result[num - 1] = nums[idx - 1];
   }
   else backtrace(idx - 1, num); // 찾을 때 까지 순회
+}
+```
+
+---
+
+## Floyd-Warshall 알고리즘
+* **모든 쌍 최단 경로**
+* 각 점을 시작점으로 *Dijkstra* 구현시 복잡하고 비효율적
+* **플로이드 알고리즘** 는 **O(n<sup>3</sup>)** 지만 간단하여 효율적
+* *정점 i 에서 정점 j 로 직접 가는 경로 vs. 다른 정점들을 경유하는 경로*
+* **인접 행렬** 사용
+
+```java
+dist = new int[N][N];
+
+for (int i = 0; i < N; i++) {
+  for (int j = 0; j < N; j++) {
+    dist[i][j] = sc.nextInt();
+    // 자기 자신으로의 인접 행렬이 아니고 인접해 있지 않다면 MAX 로 치환
+    // 자기 자신으로는 0
+    if (i != j && dist[i][j] == 0) dist[i][j] = MAX; // 계산해야 함으로 Integer.MAX_VALUE 는 쓰지 않는다
+  }
+}
+
+// 경유지 -> 출발지 -> 도착지
+for (int k = 0; k < N; k++) { // 경유지
+  for (int i = 0; i < N; i++) { // 출발지
+    if (k == i) continue;
+    for (int j = 0; j < N; j++) { // 도착지
+      if (i == j || k == j) continue;
+      // 직접 경로 vs. 경유 경로
+      if (dist[i][j] > dist[i][k] + dist[k][j]) dist[i][j] = dist[i][k] + dist[k][j];
+    }
+  }
 }
 ```
