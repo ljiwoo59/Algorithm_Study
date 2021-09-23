@@ -49,3 +49,59 @@ private static int fibo_dp(n) {
 * 반복문을 사용하기에 함수 호출이 발생하지 않는다
 * 중복 계산이 없다
 * **O(n)**
+
+# 응용
+## 최장 증가 부분 수열
+* **LIS (Longest Incresing Subsequence)**
+* *3, 2, 6, 4, 5, 1* 의 최장 증가 부분 수열은 *2, 4, 5*
+
+### O(n<sup>2</sup>) DP 접근
+```java
+int max = 0;
+for (int i = 0; i < N; i++) { // 현재 바라보는 수
+  d[i] = 1;
+  for (int j = 0; j < i; j++) { // 현재 위치까지의 수들 확인
+    // 현재 바라보는 수보다 작은 수 && 현재 위치까지의 LIS 길이가 해당 바라보는 수까지의 LIS 길이 + 1 보다 작으면
+    if (nums[j] < nums[i] && d[i] < d[j] + 1)
+      d[i] = d[j] + 1; // 현재 바라보는 수까지의 LIS 길이를 업데이트
+  }
+  if (max < d[i]) max = d[i];
+}
+```
+
+### O(nlogn) 이진 탐색 접근
+* **Arrays.binarySearch(LIS 배열, fromIndex, toIndex, 찾을 값)**
+* **LIS\[i] = 길이 i 인 증가하는 부분 수열을 만들 수 있는 마지막 원소 중 가장 작은 값**
+
+```java
+int size = 0; // LIS 에 채워진 원소 수
+for (int i = 0; i < N; i++) {
+  // 배열이 비어있거나, 배열의 마지막 원소보다 현재 보는 수보다 작으면 배열의 마지막에 넣어준다
+  if (size == 0 || LIS[size - 1] < nums[i]) LIS[size++] = nums[i];
+  else {
+    // 0 번째 부터 LIS 에 채워진 맨끝 원소까지 탐색
+    int temp = Arrays.binarySearch(LIS, 0, size, nums[i]);
+    if (temp < 0) temp = -temp - 1; // 탐색 실패: 음수값 => 삽입 위치로 환산
+    LIS[temp] = nums[i];
+  }
+}
+```
+
+### 역추적
+* **마지막 배열에 들어있는 원소들이 LIS 의 구성요소가 아님**
+* 역추적 배열 *P* 를 생성하여 *P\[i]* 에 수열의 i 번째 원소가 **LIS** 내에서 위치하는 인덱스 저장 *(1<= x <= size)*
+* *P* 를 거꾸로 순회하며 가장 처음 나타나는 *인덱스--* 가 **구성 원소**를 가리킴
+
+```java
+private static void backtrace(int idx, int num) { // 최초엔 수열 총 길이, LIS 길이
+  // 원소를 모두 찾았으면 종료
+  if (idx == 0) return;
+  
+  // 뒤에서 가장 처음 만난 *p* 의 값이 찾는 인덱스 값일 때
+  if (P[idx] == num) {
+    backtrace(idx - 1, num - 1); 다음 인덱스 값 찾기
+    result[num - 1] = nums[idx - 1];
+  }
+  else backtrace(idx - 1, num); // 찾을 때 까지 순회
+}
+```
